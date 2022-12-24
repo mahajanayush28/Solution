@@ -1,0 +1,279 @@
+
+
+Question - 7.1
+
+A) Switch/If-Else/For/While/Continue
+
+package com.practice;
+
+import java.util.Scanner;
+
+public class Test1 
+{ 
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter the value : ");
+		Scanner sc = new Scanner(System.in);
+		int choice = sc.nextInt() ;
+		SwitchCase(choice);
+	}
+
+	private static void SwitchCase(int i) 
+	{
+	   switch(i)
+	   {
+	      case 5 : { System.out.println("5 called"); break;}
+	      
+	      case 6 : { System.out.println("6 called"); break;}
+	      
+	      case 7 : { System.out.println("7 called"); break;}
+	      
+	      case 8 : { System.out.println("8 called"); break;}
+	      
+	      case 9 : int k = 0 ;
+	    	       while(k<5)
+	               {
+	    	           System.out.println("9 called");
+	    	           k++;
+	               }break;
+	      
+	      case 10 :{         
+	    	  
+	    	  for(int j=0 ; j<=10 ; j++)
+	            {
+	        	if(j==10)
+	        	{
+	        		System.out.println("10 called");
+	        	}
+	        	else
+	        	{
+	        		continue;
+	        	}
+	        };break;}
+ 
+	   }	
+	}
+}
+
+-----------------------------------------------------------------------------------
+
+B) Recursion
+
+package com.practice;
+
+import java.util.Scanner;
+
+public class Test2 
+{
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter the value : ");
+		Scanner sc = new Scanner(System.in);
+		int number = sc.nextInt() ;
+        int fact = Factorial(number);
+        System.out.println("Factorial : "+fact);
+	}
+
+	private static int Factorial(int number)
+	{
+        if(number == 0)
+        {
+        	return 1;
+        }
+        else
+        {
+        	return number*Factorial(number-1); 
+        }	
+	}
+
+}
+
+----------------------------------------------------------------------------------
+
+3) Binary Search Tree
+
+package com.practice;
+
+public class BinarySearchTree 
+{
+
+	class Node
+	{
+	  int key;
+	  Node left, right;
+
+	public Node(int item)
+	{
+          key = item;
+	  left = right = null;
+	}
+			
+}
+
+
+	Node root;
+        BinarySearchTree() 
+        { root = null; }
+
+	BinarySearchTree(int value)
+        { root = new Node(value); }
+
+
+	void insert(int key) 
+       { root = insertRec(root, key); }
+
+
+	Node insertRec(Node root, int key)
+	{
+             if (root == null) 
+             {
+		root = new Node(key);
+		return root;
+	     }
+             else if (key < root.key)
+		root.left = insertRec(root.left, key);
+            else if (key > root.key)
+		root.right = insertRec(root.right, key);
+
+		return root;
+	}
+
+	
+	void inorder() 
+        { inorderRec(root); }
+
+	void inorderRec(Node root)
+	{
+	     if (root != null) 
+             {
+		inorderRec(root.left);
+		System.out.println(root.key);
+		inorderRec(root.right);
+	      }
+	}
+
+		
+	public static void main(String[] args)
+	{
+	  BinarySearchTree tree = new BinarySearchTree();
+	  tree.insert(10);
+          tree.insert(20);
+	  tree.insert(30);
+	  tree.inorder();
+	}
+
+}
+
+-----------------------------------------------------------------------------------
+
+4) Closure
+
+<html>
+<body>
+<p id="demo">num : </p>
+
+<script>
+let num = 5;
+myFunction();
+
+function myFunction() 
+{
+  document.getElementById("demo").innerHTML = num * num;
+} 
+</script>
+<html>
+<body>
+
+-----------------------------------------------------------------------------------
+
+Question - 1.2
+
+<html>
+<body>        
+
+<div id="parent">
+    <div id="child">
+    </div>
+    <div id="child">
+      <div id="subchild">
+        subchild!
+      </div>
+    </div>
+  </div>
+
+
+
+<script>
+function getElementById(id) {
+    const result = [];
+
+    function getEachIDNode(node) {
+        if(node.id === id) {
+            result.push(node);
+        }
+        for(let i=0; i<node.childNodes.length; i++) {
+            getEachIDNode(node.childNodes[i]);
+        }
+    }
+    getEachIDNode(document.body);
+    return result;
+}
+console.log(getElementById('subchild')[0].innerHTML)
+</script>
+</body>
+</html> 
+
+----------------------------------------------------------------------------------
+
+Question 8.2
+
+
+<script>
+
+var x = 89;
+const y=x;
+
+function isPrime(xx)
+{
+    let flag=1;
+    for(i=2; i<=xx/2 ; i++)
+    {
+       if(xx%i == 0)
+       {
+         flag = 0;
+         break;
+       }
+    }
+    return flag;
+}
+
+
+function nextPrimeNumber(x)
+{
+    let result = isPrime(x);
+    result ? console.log(x + " : is prime") : console.log(x + " : is not a prime");
+     while(!isPrime(++x))
+     {
+
+     }
+     console.log(`The next prime number is ${x}`)
+     Difference(x,y);
+}
+
+nextPrimeNumber(x);
+
+function Difference(x,xx)
+{
+     z = x - y ;
+     console.log("Difference between next prime number is : ",z);
+
+}
+
+</script>
+
+
+-----------------------------------------------------------------------------------
+
+
